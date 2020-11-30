@@ -13,19 +13,24 @@ user_input = input("Enter 12 numbers separated by '-' : ")
 input_list = user_input.split('-')
 numbers = [int(x.strip()) for x in input_list]
 
-output_list = []
 index = 0
+
+#this is where in the for loop we do the calculation 
+isbn_calculation = 0
 for x in numbers:
     #if even 
     if index %2 == 0:
-        output_list.append(str(x))
+        #output_list.append(str(x))
+        isbn_calculation += x
 
     else: 
         x2 = int(x)
         x2 = (x2*3)
-        output_list.append(str(x2))
+        isbn_calculation += x2
 
     index+= 1
 
-print(output_list)
+final_isbn = 10 - (isbn_calculation %2)
+user_input += ("-" + str(final_isbn))
+print(str(user_input))
     
